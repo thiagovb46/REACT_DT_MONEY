@@ -1,13 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Container } from "./style";
 
+interface Transaction {
 
+    id: number,
+    title: string, 
+    ammount: number,
+    type: string,
+    category: string,
+    createdAt: string
+}
 
 export function TransactionTable()
 {
+
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
+
     useEffect(()=>{
-        api.get('transactions');
+        api.get('transactions')
+        .then(response => setTransactions(response.data.transactions));
     },[])
     
     return (
@@ -23,24 +35,16 @@ export function TransactionTable()
                 </thead>
                 
                 <tbody>
-                    <tr>
-                        <td>Desenvolvimento de WebSite</td>
-                        <td className="deposit"> R$ 12.000,00</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2021</td>
-                    </tr>
-                    <tr >
-                        <td>Aluguel</td>
-                        <td className="withdraw"> -R$ 1.100,00</td>
-                        <td>Despesa</td>
-                        <td>17/02/2021</td>
-                    </tr>
-                    <tr>
-                        <td>Desenvolvimento de WebSite</td>
-                        <td className="deposit">R$ 12.000,00</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2021</td>
-                    </tr>
+                    {
+                        transactions.map(transaction => (
+                            <tr key={transaction.id}>
+                                <td>{transaction.title}</td>
+                                <td className = {transaction.type}>{transaction.type}</td>
+                                <td>{transaction.category}</td>
+                                <td>{transaction.createdAt}</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
 
