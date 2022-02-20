@@ -30,6 +30,7 @@ export function TransactionTable()
                          <th>Título</th>
                          <th>Valor</th>
                         <th>Categoria</th>
+                        <th>Tipo</th>
                         <th>Data</th>
                     </tr>
                 </thead>
@@ -39,7 +40,11 @@ export function TransactionTable()
                         transactions.map(transaction => (
                             <tr key={transaction.id}>
                                 <td>{transaction.title}</td>
-                                <td className = {transaction.type}>{transaction.type}</td>
+                                <td className = {transaction.type}>{new Intl.NumberFormat('pt-BR', {
+                                    style:'currency',
+                                    currency:'BRL',
+                                }).format(transaction.ammount)}</td>
+                                <td>{transaction.type}</td>
                                 <td>{transaction.category}</td>
                                 <td>{transaction.createdAt}</td>
                             </tr>
