@@ -7,7 +7,7 @@ margin-top: 4rem;
 table 
 {
     width:100%;
-    border-spacing:  0 0.7rem;
+    border-spacing:  0 0.2rem;
     th
     {
         color: var( --text-body);
@@ -17,14 +17,13 @@ table
         line-height: 1.5rem;
        
     } 
-   
     td
     {
         padding: 1rem 2rem;
         border: 0;
         background: var(--shape);
         color: var(--text-body);
-        
+        border-radius : 0.2rem;
 
         &:first-child 
         {
