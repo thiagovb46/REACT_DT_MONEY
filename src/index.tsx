@@ -13,24 +13,24 @@ createServer({
     
     server.db.loadData({
       transactions:[
-        {
-          id:1,
-          title: 'Freela WebSite',
-          type: 'deposit',
-          category: 'dev',
-          ammount: '6000',
-          createdAt: new Date('2022-02-12 09:00:00')
+        // {
+        //   id:1,
+        //   title: 'Freela WebSite',
+        //   type: 'deposit',
+        //   category: 'dev',
+        //   ammount: '6000',
+        //   createdAt: new Date('2022-02-12 09:00:00')
 
-        },
-        {
-          id:2,
-          title: 'Aluguel',
-          type: 'withdraw',
-          category: 'despesa',
-          ammount: '1000',
-          createdAt: new Date('2022-02-12 09:00:00')
+        // },
+        // {
+        //   id:2,
+        //   title: 'Aluguel',
+        //   type: 'withdraw',
+        //   category: 'despesa',
+        //   ammount: '1000',
+        //   createdAt: new Date('2022-02-12 09:00:00')
 
-        }
+        // }
       ]
     })
 
