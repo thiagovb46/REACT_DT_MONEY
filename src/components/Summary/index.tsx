@@ -3,11 +3,11 @@ import { Container } from "./style";
 import incomeimg from "../../assets/income.svg"
 import outcomeimg from "../../assets/outcome.svg"
 import totalimg from "../../assets/total.svg"
-import { TransactionsContext } from '../../transactionsContext';
+import { TransactionsContext } from '../../TransactionsContext';
 
 export function Summary ()
 {
-    const transactions = useContext(TransactionsContext);
+    const {transactions} = useContext(TransactionsContext);
     const [totalDeposit, setTotalDeposit] = useState(0.0);
     return (
     
